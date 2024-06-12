@@ -4,7 +4,18 @@ h1{
 
 .coluna {
   background-color: #6ae4ed; 
-  padding: 20px; 
+  padding: 0px; 
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.coluna h2 {
+  color: #333; 
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.coluna p {
+  color: #062ffa; 
+  font-size: 20px;
 }
