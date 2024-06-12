@@ -1,3 +1,4 @@
+
 body {
   background-color: rgb(15, 208, 238);
   font-family: Arial, sans-serif;
@@ -20,7 +21,7 @@ h1 {
   background-color: rgb(68, 85, 241);
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; 
+  gap: 20px;
   padding: 20px;
   justify-content: space-around;
 }
@@ -30,8 +31,18 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
-  box-sizing: border-box; 
-  min-width: 250px; 
-  text-align: center; 
+  box-sizing: border-box;
+  min-width: 250px;
+  text-align: center;
 }
 
+.coluna h2 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.coluna p {
+  color: #666;
+  font-size: 1rem;
+}
