@@ -1,5 +1,9 @@
 h1{
   background-color: aqua;
+  padding: 30px;
+  border-radius: 5px;
+  width: 100%; 
+  
 }
 
 .coluna {
@@ -7,12 +11,14 @@ h1{
   padding: 0px; 
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
 }
 
 .coluna h2 {
   color: #333; 
-  font-size: 24px;
+  font-size: 25px;
   margin-bottom: 10px;
+  display: inline-block;
 }
 
 .coluna p {
