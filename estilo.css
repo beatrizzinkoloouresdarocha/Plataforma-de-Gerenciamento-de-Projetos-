@@ -1,12 +1,12 @@
 body {
-  background-color: rgb(131, 237, 237);
+  background-color: rgb(15, 208, 238);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: #3006e9;
+  background-color: #2aeac4;
   padding: 20px;
   text-align: center;
   border-bottom: 1px solid #ddd;
@@ -17,10 +17,20 @@ h1 {
 }
 
 .grid-container {
-  background-color: aqua;
+  background-color: rgb(68, 85, 241);
   display: flex;
   flex-wrap: wrap;
   gap: 20px; 
   padding: 20px;
   justify-content: space-around;
+}
+
+.coluna {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box; 
+  min-width: 250px; 
+  text-align: center; 
 }
