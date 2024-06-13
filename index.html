@@ -11,26 +11,52 @@
         <h1>Plataforma de Gerenciamento de Projetos</h1>
     </header>
     <section class="grid-container">
-        <div class="coluna">
+        <div class="coluna" id="semana">
             <h2>Atividades da Semana</h2>
             <p>Realizar tarefas semanais</p>
+            <button onclick="adicionarCard('semana')">Adicionar Card</button>
+            <div class="cards"></div>
         </div>
-        <div class="coluna">
+        <div class="coluna" id="urgentes">
             <h2>Tarefas Urgentes</h2>
             <p>Concluir urgentemente</p>
+            <button onclick="adicionarCard('urgentes')">Adicionar Card</button>
+            <div class="cards"></div>
         </div>
-        <div class="coluna">
+        <div class="coluna" id="pouco-urgentes">
             <h2>Tarefas Pouco Urgentes</h2>
             <p>Concluir em breve</p>
+            <button onclick="adicionarCard('pouco-urgentes')">Adicionar Card</button>
+            <div class="cards"></div>
         </div>
-        <div class="coluna">
+        <div class="coluna" id="novos-projetos">
             <h2>Iniciar Novos Projetos</h2>
-            <p>Criar ajustes</p> 
+            <p>Criar ajustes</p>
+            <button onclick="adicionarCard('novos-projetos')">Adicionar Card</button>
+            <div class="cards"></div>
         </div>
-        <div class="coluna">
+        <div class="coluna" id="criativos">
             <h2>Projetos Criativos</h2>
-            <p>Criar cards</p> 
+            <p>Criar cards</p>
+            <button onclick="adicionarCard('criativos')">Adicionar Card</button>
+            <div class="cards"></div>
         </div>
     </section>
+ 
+    <script>
+        function adicionarCard(colunaId) {
+            // Cria um novo card
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <h3>Novo Card</h3>
+                <p>Descrição da tarefa</p>
+            `;
+            
+            // Adiciona o card à coluna específica
+            const coluna = document.getElementById(colunaId).querySelector('.cards');
+            coluna.appendChild(card);
+        }
+    </script>
 </body>
 </html>
