@@ -1,48 +1,46 @@
-
+/* estilo.css */
 body {
-  background-color: rgb(15, 208, 238);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: #2aeac4;
-  padding: 20px;
+  background-color: #4CAF50;
+  color: white;
   text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-h1 {
-  margin: 0;
+  padding: 1rem 0;
 }
 
 .grid-container {
-  background-color: rgb(68, 85, 241);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 10px;
 }
 
 .coluna {
-  background-color: #f1f1f1;
+  background-color: #23f4f4;
   border: 1px solid #ddd;
-  border-radius: 5px;
   padding: 10px;
-  box-sizing: border-box;
-  min-width: 250px;
-  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.coluna h2 {
-  color: #333;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.task-area {
+  min-height: 30px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
 }
 
-.coluna p {
-  color: #666;
-  font-size: 1rem;
+.task-card {
+  background-color: #e1f5fe;
+  border: 1px solid #81d4fa;
+  border-radius: 4px;
+  margin: 5px 0;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
