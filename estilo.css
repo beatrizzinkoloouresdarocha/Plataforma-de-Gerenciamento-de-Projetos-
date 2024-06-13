@@ -13,6 +13,7 @@ header {
 }
 
 .grid-container {
+  background-color: rgb(18, 237, 33);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
