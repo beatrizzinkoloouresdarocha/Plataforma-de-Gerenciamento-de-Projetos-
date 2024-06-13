@@ -38,43 +38,65 @@
         </div>
 
         <!-- Novas Divs -->
-        <div class="coluna">
+        <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-planejamento-estrategico">
             <h2>Planejamento Estratégico</h2>
             <p>Definir metas e objetivos a longo prazo</p>
             <div class="task-area" id="planejamento-estrategico">
                 <p>Detalhes sobre o planejamento estratégico da empresa para os próximos 5 anos.</p>
             </div>
         </div>
-        <div class="coluna">
+        <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-projetos-andamento">
             <h2>Projetos em Andamento</h2>
             <p>Monitorar progresso dos projetos atuais</p>
             <div class="task-area" id="projetos-andamento">
                 <p>Atualizações e status dos projetos atualmente em execução.</p>
             </div>
         </div>
-        <div class="coluna">
+        <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-projetos-finalizados">
             <h2>Projetos Finalizados</h2>
             <p>Relatórios e avaliações de projetos concluídos</p>
             <div class="task-area" id="projetos-finalizados">
                 <p>Resumo dos projetos concluídos, incluindo sucessos e aprendizados.</p>
             </div>
         </div>
-        <div class="coluna">
+        <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-tarefas-futuras">
             <h2>Tarefas Futuras</h2>
             <p>Planejamento e preparativos para tarefas futuras</p>
             <div class="task-area" id="tarefas-futuras">
                 <p>Agenda de tarefas planejadas para os próximos meses.</p>
             </div>
         </div>
-        <div class="coluna">
-            <h2>cards de cobraças </h2>
+        <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-cards-cobrancas">
+            <h2>Cards de Cobranças</h2>
             <p>Definir metas e objetivos a longo prazo</p>
             <div class="task-area" id="planejamento-estrategico">
-                <p>criar uma maneira de os clientes receber</p>
-                <p>avisos no celular referente suas dividas</p>
+                <p>Criar uma maneira de os clientes receberem avisos no celular referente suas dívidas.</p>
             </div>
         </div>
     </section>
-    <script src="script.js"></script>
+    <script>
+        // Função para iniciar o arrasto
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        // Permite que o elemento seja arrastado para um novo local
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        // Função para definir onde o item arrastado será solto
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            event.target.appendChild(document.getElementById(data));
+        }
+
+        // Adiciona os eventos de drop nas colunas
+        document.querySelectorAll('.grid-container').forEach(container => {
+            container.addEventListener('dragover', allowDrop);
+            container.addEventListener('drop', drop);
+        });
+    </script>
 </body>
 </html>
