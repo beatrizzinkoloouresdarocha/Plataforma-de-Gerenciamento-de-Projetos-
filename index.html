@@ -73,9 +73,15 @@
                 <p>Notificações de cobranças para os clientes.</p>
             </div>
         </div>
+        <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-planejamento-organização">
+            <h2>Planejamento pra organizar documentos</h2>
+            <p>Deixar organizados os documentos</p>
+            <div class="task-area" id="planejamento-organização">
+                <p>Criar uma pasta automatica pra guardar os documentos</p>
+            </div>
     </section>
     <script>
-        
+
         function drag(event) {
             event.dataTransfer.setData("text", event.target.id);
         }
