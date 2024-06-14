@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -81,7 +82,7 @@ header {
   border: none;
   padding: 5px;
   box-sizing: border-box;
-  resize: vertical;
+  resize: vertical; 
 }
 
 .add-task-btn {
@@ -97,25 +98,3 @@ header {
 .add-task-btn:hover {
   background-color: #0056b3;
 }
-
-.grid-container {
-  margin: 20px auto;
-  max-width: 1200px;
-}
-
-.coluna {
-  margin-bottom: 20px;
-}
-
-.coluna h2 {
-  color: #333;
-}
-
-.coluna p {
-  color: #777;
-}
-
-.task textarea {
-  font-size: 14px;
-}
-
