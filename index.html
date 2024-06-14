@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plataforma de Gerenciamento de Projetos</title>
     <link rel="stylesheet" href="estilo.css">
+    <style>
+        /* Estilos adicionais que você pode ter no seu arquivo estilo.css */
+    </style>
 </head>
 <body>
     <header>
@@ -59,7 +62,7 @@
             coluna.addEventListener('drop', drop);
         });
 
-        // Função para adicionar novas tarefas com textarea
+        // Função para adicionar novas tarefas com textarea e torná-las arrastáveis
         function adicionarTarefa(areaId) {
             // Seleciona a área onde a nova tarefa será adicionada
             var taskArea = document.getElementById(areaId);
@@ -67,8 +70,8 @@
             // Cria uma nova div de tarefa
             var novaTarefa = document.createElement('div');
             novaTarefa.className = 'task';
-            novaTarefa.draggable = true;
-            novaTarefa.ondragstart = drag;
+            novaTarefa.draggable = true; // Torna a tarefa arrastável
+            novaTarefa.ondragstart = drag; // Define o evento de arrastar
 
             // Cria um textarea para a descrição da tarefa
             var textarea = document.createElement('textarea');
@@ -79,6 +82,11 @@
 
             // Adiciona a nova tarefa à área de tarefas
             taskArea.appendChild(novaTarefa);
+
+            // Adiciona eventos de arrastar e soltar à nova tarefa
+            novaTarefa.addEventListener('dragstart', drag);
+            novaTarefa.addEventListener('dragover', allowDrop);
+            novaTarefa.addEventListener('drop', drop);
         }
     </script>
 </body>
