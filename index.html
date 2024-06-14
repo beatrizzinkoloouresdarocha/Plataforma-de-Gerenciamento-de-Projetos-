@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="estilo.css">
     <style>
         /* Estilos adicionais que você pode ter no seu arquivo estilo.css */
+        /* Estilo para elemento arrastado */
+        .task.dragging {
+            opacity: 0.7; /* Opacidade reduzida durante o arrastar */
+            transform: scale(0.95); /* Escala ligeiramente reduzida */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra aumentada */
+        }
+
+        /* Estilo para textarea dentro do elemento arrastado */
+        .task.dragging textarea {
+            cursor: grabbing; /* Cursor de arrastar */
+        }
     </style>
 </head>
 <body>
@@ -41,7 +52,8 @@
     </section>
     <script>
         function drag(event) {
-            event.dataTransfer.setData("text", event.target.id);
+            event.dataTransfer.setData("text/plain", event.currentTarget.id);
+            event.currentTarget.classList.add('dragging');
         }
 
         function allowDrop(event) {
@@ -50,10 +62,11 @@
 
         function drop(event) {
             event.preventDefault();
-            var data = event.dataTransfer.getData("text");
+            var data = event.dataTransfer.getData("text/plain");
             if (event.target.classList.contains('coluna') || event.target.classList.contains('task-area')) {
                 event.target.appendChild(document.getElementById(data));
             }
+            document.getElementById(data).classList.remove('dragging');
         }
 
         // Adiciona eventos de arrastar e soltar nas colunas
@@ -62,29 +75,21 @@
             coluna.addEventListener('drop', drop);
         });
 
-        // Função para adicionar novas tarefas com textarea e torná-las arrastáveis
+        // Função para adicionar novas tarefas
         function adicionarTarefa(areaId) {
-            // Seleciona a área onde a nova tarefa será adicionada
             var taskArea = document.getElementById(areaId);
 
-            // Cria uma nova div de tarefa
             var novaTarefa = document.createElement('div');
             novaTarefa.className = 'task';
-            novaTarefa.draggable = true; // Torna a tarefa arrastável
-            novaTarefa.ondragstart = drag; // Define o evento de arrastar
+            novaTarefa.draggable = true;
+            novaTarefa.addEventListener('dragstart', drag);
 
-            // Cria um textarea para a descrição da tarefa
             var textarea = document.createElement('textarea');
             textarea.placeholder = 'Escreva a descrição da tarefa aqui...';
 
-            // Adiciona o textarea à nova tarefa
             novaTarefa.appendChild(textarea);
-
-            // Adiciona a nova tarefa à área de tarefas
             taskArea.appendChild(novaTarefa);
 
-            // Adiciona eventos de arrastar e soltar à nova tarefa
-            novaTarefa.addEventListener('dragstart', drag);
             novaTarefa.addEventListener('dragover', allowDrop);
             novaTarefa.addEventListener('drop', drop);
         }
