@@ -14,25 +14,27 @@
         <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-semana">
             <h2>Atividades da Semana</h2>
             <p>Realizar tarefas semanais</p>
-            <div class="task-area" id="semana" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="task-area" id="semana"></div>
         </div>
         <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-urgentes">
             <h2>Tarefas Urgentes</h2>
             <p>Concluir urgentemente</p>
-            <div class="task-area" id="urgentes" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="task-area" id="urgentes"></div>
         </div>
         <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-pouco-urgentes">
             <h2>Menos urgentes</h2>
             <p>Concluir em breve</p>
-            <div class="task-area" id="pouco-urgentes" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="task-area" id="pouco-urgentes"></div>
         </div>
         <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-novos-projetos">
             <h2>Iniciar Novos Projetos</h2>
             <p>Criar ajustes</p>
-            <div class="task-area" id="novos-projetos" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="task-area" id="novos-projetos"></div>
         </div>
+        
     </section>
     <script>
+
         function drag(event) {
             event.dataTransfer.setData("text", event.target.id);
         }
@@ -44,16 +46,11 @@
         function drop(event) {
             event.preventDefault();
             var data = event.dataTransfer.getData("text");
-            var draggedElement = document.getElementById(data);
-            // Verifica se o alvo do drop é uma task-area ou um filho dela
-            if (event.target.classList.contains('task-area')) {
-                event.target.appendChild(draggedElement);
-            } else if (event.target.closest('.task-area')) {
-                event.target.closest('.task-area').appendChild(draggedElement);
+            if (event.target.classList.contains('coluna') || event.target.classList.contains('task-area')) {
+                event.target.appendChild(document.getElementById(data));
             }
         }
 
-        // Adiciona eventos de arrastar para as colunas
         document.querySelectorAll('.coluna').forEach(coluna => {
             coluna.addEventListener('dragover', allowDrop);
             coluna.addEventListener('drop', drop);
