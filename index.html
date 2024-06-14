@@ -15,26 +15,28 @@
             <h2>Atividades da Semana</h2>
             <p>Realizar tarefas semanais</p>
             <div class="task-area" id="semana"></div>
+            <button class="add-task-btn" onclick="adicionarTarefa('semana')">Adicionar Tarefa</button>
         </div>
         <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-urgentes">
             <h2>Tarefas Urgentes</h2>
             <p>Concluir urgentemente</p>
             <div class="task-area" id="urgentes"></div>
+            <button class="add-task-btn" onclick="adicionarTarefa('urgentes')">Adicionar Tarefa</button>
         </div>
         <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-pouco-urgentes">
             <h2>Menos urgentes</h2>
             <p>Concluir em breve</p>
             <div class="task-area" id="pouco-urgentes"></div>
+            <button class="add-task-btn" onclick="adicionarTarefa('pouco-urgentes')">Adicionar Tarefa</button>
         </div>
         <div class="coluna" draggable="true" ondragstart="drag(event)" id="coluna-novos-projetos">
             <h2>Iniciar Novos Projetos</h2>
             <p>Criar ajustes</p>
             <div class="task-area" id="novos-projetos"></div>
+            <button class="add-task-btn" onclick="adicionarTarefa('novos-projetos')">Adicionar Tarefa</button>
         </div>
-        
     </section>
     <script>
-
         function drag(event) {
             event.dataTransfer.setData("text", event.target.id);
         }
@@ -51,10 +53,29 @@
             }
         }
 
+        // Adiciona eventos de arrastar e soltar nas colunas
         document.querySelectorAll('.coluna').forEach(coluna => {
             coluna.addEventListener('dragover', allowDrop);
             coluna.addEventListener('drop', drop);
         });
+
+        // Função para adicionar novas tarefas
+        function adicionarTarefa(areaId) {
+            // Seleciona a área onde a nova tarefa será adicionada
+            var taskArea = document.getElementById(areaId);
+
+            // Cria uma nova div de tarefa
+            var novaTarefa = document.createElement('div');
+            novaTarefa.className = 'task';
+            novaTarefa.draggable = true;
+            novaTarefa.ondragstart = drag;
+
+            // Adiciona conteúdo à nova tarefa
+            novaTarefa.textContent = 'Nova Tarefa';
+
+            // Adiciona a nova tarefa à área de tarefas
+            taskArea.appendChild(novaTarefa);
+        }
     </script>
 </body>
 </html>
