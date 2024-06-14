@@ -103,3 +103,13 @@ header {
   cursor: grabbing;
 }
 
+.task.dragging {
+  opacity: 0.7; /* Opacidade reduzida durante o arrastar */
+  transform: scale(0.95); /* Escala ligeiramente reduzida */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra aumentada */
+}
+
+/* Estilo para textarea dentro do elemento arrastado */
+.task.dragging textarea {
+  cursor: grabbing; /* Cursor de arrastar */
+}
