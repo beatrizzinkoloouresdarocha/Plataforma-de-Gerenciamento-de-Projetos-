@@ -54,10 +54,14 @@ header {
   color: #888;
 }
 
-.coluna.drag-over {
+/* Indica visualmente a área onde a tarefa será solta */
+.coluna.drag-over,
+.task-area.drag-over {
   border-style: dashed;
+  background-color: #e6f7ff;
 }
 
+/* Estilo para a tarefa durante o arrasto */
 .task {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -66,6 +70,12 @@ header {
   margin-bottom: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   cursor: move;
+}
+
+.task.dragging {
+  opacity: 0.7; 
+  transform: scale(0.95); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .task textarea {
@@ -78,6 +88,11 @@ header {
   resize: vertical;
 }
 
+.task.dragging textarea {
+  cursor: grabbing; 
+}
+
+/* Estilo do botão de adicionar tarefa */
 .add-task-btn {
   margin-top: 10px;
   padding: 8px 12px; 
@@ -91,24 +106,4 @@ header {
 
 .add-task-btn:hover {
   background-color: #0056b3;
-}
-
-.task.dragging {
-  opacity: 0.7;
-  transform: scale(0.95);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.task.dragging textarea {
-  cursor: grabbing;
-}
-
-.task.dragging {
-  opacity: 0.7; 
-  transform: scale(0.95); 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-}
-
-.task.dragging textarea {
-  cursor: grabbing; 
 }
