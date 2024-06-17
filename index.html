@@ -56,34 +56,26 @@
             }
         }
 
-        // Adiciona eventos de arrastar e soltar nas colunas
         document.querySelectorAll('.coluna').forEach(coluna => {
             coluna.addEventListener('dragover', allowDrop);
             coluna.addEventListener('drop', drop);
         });
 
-        // Função para adicionar novas tarefas com textarea e torná-las arrastáveis
         function adicionarTarefa(areaId) {
-            // Seleciona a área onde a nova tarefa será adicionada
             var taskArea = document.getElementById(areaId);
 
-            // Cria uma nova div de tarefa
             var novaTarefa = document.createElement('div');
             novaTarefa.className = 'task';
-            novaTarefa.draggable = true; // Torna a tarefa arrastável
-            novaTarefa.ondragstart = drag; // Define o evento de arrastar
+            novaTarefa.draggable = true; 
+            novaTarefa.ondragstart = drag; 
 
-            // Cria um textarea para a descrição da tarefa
             var textarea = document.createElement('textarea');
             textarea.placeholder = 'Escreva a descrição da tarefa aqui...';
 
-            // Adiciona o textarea à nova tarefa
             novaTarefa.appendChild(textarea);
 
-            // Adiciona a nova tarefa à área de tarefas
             taskArea.appendChild(novaTarefa);
 
-            // Adiciona eventos de arrastar e soltar à nova tarefa
             novaTarefa.addEventListener('dragstart', drag);
             novaTarefa.addEventListener('dragover', allowDrop);
             novaTarefa.addEventListener('drop', drop);
